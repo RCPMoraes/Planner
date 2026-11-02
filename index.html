@@ -637,17 +637,15 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 <button id="lhCloudButton" type="button">☁ Nuvem GitHub</button>
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
 <h3>LifeHub · GitHub</h3>
-<small>Repositório: <b>RCPMoraes/Planner</b>. Arquivo criptografado salvo na raiz. Nunca coloque o token no código ou envie a outra pessoa.</small>
+<small>Repositório: <b>RCPMoraes/Planner</b>. Backup salvo na raiz de um repositório privado. Nunca coloque o token no código ou envie a outra pessoa.</small>
 <label for="lhToken">Token GitHub clássico (Personal Access Token classic · escopo repo)</label>
 <input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu token classic (ghp_...) aqui">
 <small>Para gerar: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic). Marque o escopo <b>repo</b>. Nunca publique o token.</small>
-<label for="lhPass">Senha de criptografia (mínimo 12 caracteres)</label>
-<input id="lhPass" type="password" autocomplete="off" placeholder="Crie uma senha forte e guarde-a">
-<small>Esta senha é necessária para recuperar seus dados em outro aparelho. Não é armazenada. Se perdê-la, não será possível abrir o backup criptografado.</small>
+<small><b>Acesso somente com Token Classic.</b> Não é solicitada senha adicional. Por segurança, backups sem criptografia só podem ser enviados para repositórios privados. Backups antigos criptografados não são abertos automaticamente.</small>
 <div><button id="lhCheck" type="button">Testar conexão</button><button id="lhPull" type="button">Baixar da nuvem</button><button id="lhPush" type="button">Salvar na nuvem</button></div>
 <label><input id="lhAuto" type="checkbox" style="width:auto"> Salvar automaticamente após alterações (requer conexão testada e dados sincronizados)</label>
 <div id="lhCloudStatus" role="status" style="margin-top:9px;white-space:pre-wrap"></div>
-<small>Exames com anexos podem tornar o arquivo grande. GitHub Pages é hospedagem pública: o conteúdo do arquivo fica criptografado, mas seu nome e histórico de alterações ficam visíveis. Não armazene senhas neste planner.</small>
+<small>Exames com anexos podem tornar o arquivo grande. O backup sem senha adicional não é criptografado. Por segurança, é obrigatório que o repositório seja privado. Não armazene senhas neste planner.</small>
 </div>
 <script>
 (()=>{
@@ -657,21 +655,29 @@ const api=`https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 const $c=id=>document.getElementById(id), status=t=>$c('lhCloudStatus').textContent=t;
 let knownSha=null,ready=false,busy=false,timer=null;
 const allowed=k=>k!=='lifehub_secrets'&&!k.startsWith('lifehub_personal_')&&!k.startsWith('draw_personal_')&&(k.startsWith('lifehub_')||k.startsWith('meeting_')||k.startsWith('inspection_')||k.startsWith('draw_'));
-const token=()=>$c('lhToken').value.trim(),pass=()=>$c('lhPass').value;
-function guard(){if(!token())throw Error('Informe o Personal Access Token (classic) do GitHub.');if(pass().length<12)throw Error('A senha de criptografia precisa ter ao menos 12 caracteres.');if(!crypto?.subtle)throw Error('Abra pelo GitHub Pages (HTTPS) para usar criptografia.');}
+const token=()=>$c('lhToken').value.trim();
+function guard(){if(!token())throw Error('Informe o Personal Access Token (classic) do GitHub.');if(!crypto?.subtle)throw Error('Abra pelo GitHub Pages (HTTPS) para usar criptografia.');}
 const enc=new TextEncoder(),dec=new TextDecoder();
 function b64(bytes){let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s)}
 function unb64(s){const v=atob(s);return Uint8Array.from(v,c=>c.charCodeAt(0))}
-async function key(salt){const base=await crypto.subtle.importKey('raw',enc.encode(pass()),{name:'PBKDF2'},false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:210000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
-async function encrypt(obj){let salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));let cipher=await crypto.subtle.encrypt({name:'AES-GCM',iv},await key(salt),enc.encode(JSON.stringify(obj)));return {format:'lifehub-aesgcm-v1',salt:b64(salt),iv:b64(iv),data:b64(new Uint8Array(cipher))}}
-async function decrypt(obj){if(obj.format!=='lifehub-aesgcm-v1')throw Error('Formato de backup desconhecido.');try{let raw=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(obj.iv)},await key(unb64(obj.salt)),unb64(obj.data));return JSON.parse(dec.decode(raw))}catch{throw Error('Não foi possível abrir os dados. Confira a senha de criptografia.')}}
+async function assertPrivateRepo(){
+ const r=await fetch(`https://api.github.com/repos/${owner}/${repo}`,{headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+ const j=await r.json().catch(()=>({}));
+ if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'Não foi possível verificar o repositório.'}`);
+ if(j.private!==true)throw Error('O repositório Planner está público. Para usar backup sem segunda senha, altere o repositório para PRIVADO no GitHub. Nenhum dado será enviado.');
+}
+async function decrypt(obj){
+ if(obj?.format==='lifehub-aesgcm-v1')throw Error('Este backup antigo está criptografado com uma senha. Para migrar, abra-o primeiro na versão anterior do LifeHub e depois salve na nova versão.');
+ if(obj?.format!=='lifehub-token-classic-private-v1')throw Error('Formato de backup desconhecido.');
+ return obj.payload;
+}
 async function request(method,body){let r=await fetch(api,{method,headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});if(r.status===404&&method==='GET')return null;let j=await r.json().catch(()=>({}));if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'falha na conexão'}`);return j}
 async function getRemote(){return await request('GET')}
 async function snapshot(){let data={};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(allowed(k))data[k]=localStorage.getItem(k)}let exams=[];if(typeof examAll==='function'){for(const x of await examAll()){let y={...x};if(x.file&&typeof fileToDataURL==='function'){y.fileData=await fileToDataURL(x.file);y.fileName=x.fileName||x.file.name;y.fileType=x.fileType||x.file.type;delete y.file}exams.push(y)}}return {version:2,date:new Date().toISOString(),data,exams}}
-async function check(){guard();status('Conectando...');const r=await getRemote();knownSha=r?.sha||null;ready=false;status(r?'Conexão OK. Há dados na nuvem. Clique em “Baixar da nuvem” antes de salvar alterações.':'Conexão OK. Ainda não há arquivo na nuvem. Pode usar “Salvar na nuvem”.');if(!r)ready=true}
-async function pull(){guard();if(!confirm('Baixar dados da nuvem e substituir os registros correspondentes neste aparelho? Faça um backup local antes de continuar.'))return;status('Baixando e descriptografando...');const r=await getRemote();if(!r)throw Error('Nenhum backup encontrado na nuvem.');const url=`https://raw.githubusercontent.com/${owner}/${repo}/${encodeURIComponent(r.sha)}/${path}`;let encrypted;try{const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw Error();encrypted=await res.json()}catch{let c=await request('GET');encrypted=JSON.parse(dec.decode(unb64(c.content.replace(/\s/g,''))))}
+async function check(){guard();status('Conectando...');await assertPrivateRepo();const r=await getRemote();knownSha=r?.sha||null;ready=false;status(r?'Conexão OK. Há dados na nuvem. Clique em “Baixar da nuvem” antes de salvar alterações.':'Conexão OK. Ainda não há arquivo na nuvem. Pode usar “Salvar na nuvem”.');if(!r)ready=true}
+async function pull(){guard();await assertPrivateRepo();if(!confirm('Baixar dados da nuvem e substituir os registros correspondentes neste aparelho? Faça um backup local antes de continuar.'))return;status('Baixando dados do repositório privado...');const r=await getRemote();if(!r)throw Error('Nenhum backup encontrado na nuvem.');let encrypted;{let c=await request('GET');encrypted=JSON.parse(dec.decode(unb64(c.content.replace(/\s/g,''))))}
 const obj=await decrypt(encrypted);if(!obj?.data||typeof obj.data!=='object')throw Error('Dados do backup inválidos.');const entries=Object.entries(obj.data).filter(([k])=>allowed(k));entries.forEach(([k,v])=>localStorage.setItem(k,v));if(Array.isArray(obj.exams)&&typeof examPut==='function'){for(let x of obj.exams){let y={...x};if(y.fileData&&typeof dataURLToFile==='function'){y.file=dataURLToFile(y.fileData,y.fileName,y.fileType);delete y.fileData}await examPut(y)}}knownSha=r.sha;ready=true;status(`Recuperados ${entries.length} registros e ${obj.exams?.length||0} exames. Atualize a página para visualizar.`)}
-async function push(auto=false){guard();if(!ready)throw Error('Antes de salvar, clique em “Testar conexão” e, se já houver dados, em “Baixar da nuvem”.');status('Verificando versão remota...');let remote=await getRemote();if((remote?.sha||null)!==knownSha){ready=false;throw Error('A nuvem mudou em outro aparelho. Baixe os dados primeiro para evitar sobrescrever alterações.')}let snap=await snapshot();status(`Criptografando ${Object.keys(snap.data).length} registros...`);let encrypted=await encrypt(snap),raw=enc.encode(JSON.stringify(encrypted));if(raw.length>90*1024*1024)throw Error('Backup muito grande para o GitHub.');let payload={message:`Atualizar backup LifeHub ${new Date().toISOString()}`,content:b64(raw),...(knownSha?{sha:knownSha}:{})};let out=await request('PUT',payload);knownSha=out.content.sha;ready=true;status(`Salvo na raiz do GitHub: ${Object.keys(snap.data).length} registros, ${snap.exams.length} exames. ${new Date().toLocaleString('pt-BR')}`)}
+async function push(auto=false){guard();await assertPrivateRepo();if(!ready)throw Error('Antes de salvar, clique em “Testar conexão” e, se já houver dados, em “Baixar da nuvem”.');status('Verificando versão remota...');let remote=await getRemote();if((remote?.sha||null)!==knownSha){ready=false;throw Error('A nuvem mudou em outro aparelho. Baixe os dados primeiro para evitar sobrescrever alterações.')}let snap=await snapshot();status(`Preparando ${Object.keys(snap.data).length} registros para o repositório privado...`);let raw=enc.encode(JSON.stringify({format:'lifehub-token-classic-private-v1',payload:snap}));if(raw.length>90*1024*1024)throw Error('Backup muito grande para o GitHub.');let payload={message:`Atualizar backup LifeHub ${new Date().toISOString()}`,content:b64(raw),...(knownSha?{sha:knownSha}:{})};let out=await request('PUT',payload);knownSha=out.content.sha;ready=true;status(`Salvo na raiz do GitHub: ${Object.keys(snap.data).length} registros, ${snap.exams.length} exames. ${new Date().toLocaleString('pt-BR')}`)}
 async function run(fn){if(busy)return;busy=true;try{await fn()}catch(e){status('Erro: '+e.message)}finally{busy=false}}
 $c('lhCloudButton').onclick=()=>{$c('lhCloudPanel').style.display=$c('lhCloudPanel').style.display==='block'?'none':'block'};
 $c('lhCheck').onclick=()=>run(check);$c('lhPull').onclick=()=>run(pull);$c('lhPush').onclick=()=>run(()=>push(false));
