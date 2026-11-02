@@ -637,7 +637,7 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 <button id="lhCloudButton" type="button">☁ Nuvem GitHub</button>
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
 <h3>LifeHub · GitHub</h3>
-<small>Repositório: <b>RCPMoraes/Planner</b>. Backup salvo na raiz de um repositório privado. Nunca coloque o token no código ou envie a outra pessoa.</small>
+<small><b>Aplicativo público:</b> RCPMoraes/Planner (GitHub Pages). <b>Backup privado:</b> RCPMoraes/Planner-Backup. Crie o repositório <b>Planner-Backup</b> como privado antes de conectar. Nunca coloque o token no código.</small>
 <label for="lhToken">Token GitHub clássico (Personal Access Token classic · escopo repo)</label>
 <input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu token classic (ghp_...) aqui">
 <small>Para gerar: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic). Marque o escopo <b>repo</b>. Nunca publique o token.</small>
@@ -645,18 +645,20 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 <div><button id="lhCheck" type="button">Testar conexão</button><button id="lhPull" type="button">Baixar da nuvem</button><button id="lhPush" type="button">Salvar na nuvem</button></div>
 <label><input id="lhAuto" type="checkbox" style="width:auto"> Salvar automaticamente após alterações (requer conexão testada e dados sincronizados)</label>
 <div id="lhCloudStatus" role="status" style="margin-top:9px;white-space:pre-wrap"></div>
-<small>Exames com anexos podem tornar o arquivo grande. O backup sem senha adicional não é criptografado. Por segurança, é obrigatório que o repositório seja privado. Não armazene senhas neste planner.</small>
+<small>Exames com anexos podem tornar o arquivo grande. O backup sem senha adicional não é criptografado. O sistema só aceita o repositório privado Planner-Backup para guardar dados; o site Planner continua público. Não armazene senhas neste planner.</small>
 </div>
 <script>
 (()=>{
 'use strict';
-const owner='RCPMoraes',repo='Planner',path='lifehub-dados-criptografados.json';
+// Repositório do site: RCPMoraes/Planner (público, GitHub Pages).
+// Repositório dos dados: RCPMoraes/Planner-Backup (obrigatoriamente privado).
+const owner='RCPMoraes',repo='Planner-Backup',path='lifehub-dados-criptografados.json';
 const api=`https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 const $c=id=>document.getElementById(id), status=t=>$c('lhCloudStatus').textContent=t;
 let knownSha=null,ready=false,busy=false,timer=null;
 const allowed=k=>k!=='lifehub_secrets'&&!k.startsWith('lifehub_personal_')&&!k.startsWith('draw_personal_')&&(k.startsWith('lifehub_')||k.startsWith('meeting_')||k.startsWith('inspection_')||k.startsWith('draw_'));
 const token=()=>$c('lhToken').value.trim();
-function guard(){if(!token())throw Error('Informe o Personal Access Token (classic) do GitHub.');if(!crypto?.subtle)throw Error('Abra pelo GitHub Pages (HTTPS) para usar criptografia.');}
+function guard(){if(!token())throw Error('Informe o Personal Access Token (classic) do GitHub.');}
 const enc=new TextEncoder(),dec=new TextDecoder();
 function b64(bytes){let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s)}
 function unb64(s){const v=atob(s);return Uint8Array.from(v,c=>c.charCodeAt(0))}
@@ -664,7 +666,7 @@ async function assertPrivateRepo(){
  const r=await fetch(`https://api.github.com/repos/${owner}/${repo}`,{headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
  const j=await r.json().catch(()=>({}));
  if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'Não foi possível verificar o repositório.'}`);
- if(j.private!==true)throw Error('O repositório Planner está público. Para usar backup sem segunda senha, altere o repositório para PRIVADO no GitHub. Nenhum dado será enviado.');
+ if(j.private!==true)throw Error('O repositório de backup Planner-Backup não é privado. Crie ou torne PRIVADO RCPMoraes/Planner-Backup. Mantenha RCPMoraes/Planner público para o site. Nenhum dado será enviado.');
 }
 async function decrypt(obj){
  if(obj?.format==='lifehub-aesgcm-v1')throw Error('Este backup antigo está criptografado com uma senha. Para migrar, abra-o primeiro na versão anterior do LifeHub e depois salve na nova versão.');
