@@ -636,14 +636,14 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 
 <style>
 #lhCloudButton{position:fixed;right:16px;bottom:16px;z-index:9000;border:0;border-radius:50px;background:#2e5e4e;color:white;padding:12px 18px;font-weight:bold;box-shadow:0 5px 20px #0004}
-#lhCloudPanel{position:fixed;right:12px;bottom:68px;z-index:9001;width:min(380px,calc(100vw - 24px));max-height:80vh;overflow:auto;background:#fff;color:#24352f;border:1px solid #9caf9a;border-radius:14px;padding:17px;box-shadow:0 10px 35px #0005;display:none;font:14px Arial}
+#lhCloudPanel{display:none;position:fixed;right:12px;bottom:68px;z-index:9001;width:min(380px,calc(100vw - 24px));max-height:80vh;overflow:auto;background:#fff;color:#24352f;border:1px solid #9caf9a;border-radius:14px;padding:17px;box-shadow:0 10px 35px #0005;display:none;font:14px Arial}
 #lhCloudPanel input{width:100%;margin:5px 0 12px;padding:9px;border:1px solid #bbb;border-radius:7px}
 #lhCloudPanel button{margin:5px 4px 5px 0;padding:9px 12px;border-radius:8px;border:1px solid #9caf9a;background:#e7efe8;color:#24352f;font-weight:700}
 #lhCloudPanel small{display:block;line-height:1.5}
 </style>
 <button id="lhCloudButton" type="button">☁ Nuvem GitHub</button>
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
-<h3>LifeHub · GitHub</h3>
+<h3>LifeHub · GitHub</h3><small>Site publicado: <a href="https://rcpmoraes.github.io/Planner/index.html" target="_blank" rel="noopener noreferrer">rcpmoraes.github.io/Planner/index.html</a></small>
 <small><b>Aplicativo público:</b> RCPMoraes/Planner (GitHub Pages). <b>Sincronização:</b> RCPMoraes/Planner. O repositório é público; não envie informações sensíveis. Nunca coloque o token no código.</small>
 <label for="lhRepo">Repositório GitHub para sincronização</label>
 <input id="lhRepo" type="text" value="Planner" autocomplete="off" spellcheck="false" placeholder="Nome do repositório">
@@ -664,7 +664,7 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 'use strict';
 // Repositório do site: RCPMoraes/Planner (público, GitHub Pages).
 // Repositório dos dados: RCPMoraes/Planner (público; backup sem criptografia).
-const owner='RCPMoraes',path='lifehub-backup.json';
+const owner='RCPMoraes',path='lifehub-backup.json'; // Site: https://rcpmoraes.github.io/Planner/index.html
 const repo=()=>($c('lhRepo').value||'').trim();
 const repoUrl=()=>`https://api.github.com/repos/${owner}/${encodeURIComponent(repo())}`;
 const api=()=>`${repoUrl()}/contents/${path}`;
@@ -715,7 +715,7 @@ async function run(fn){if(busy)return;busy=true;try{await fn()}catch(e){ready=fa
 $c('lhForgetToken').onclick=()=>{clearTimeout(timer);$c('lhAuto').checked=false;$c('lhToken').value='';ready=false;confirmedWrite=false;knownSha=null;status('Token removido desta sessão.','disconnected')};
 $c('lhRepo').addEventListener('input',()=>{clearTimeout(timer);$c('lhAuto').checked=false;ready=false;confirmedWrite=false;knownSha=null;status('Repositório alterado. Conecte novamente.','disconnected')});
 $c('lhToken').addEventListener('input',()=>{clearTimeout(timer);$c('lhAuto').checked=false;ready=false;confirmedWrite=false;knownSha=null;status('Token alterado. Teste a conexão novamente.','disconnected')});
-$c('lhCloudButton').onclick=()=>{$c('lhCloudPanel').style.display=$c('lhCloudPanel').style.display==='block'?'none':'block'};
+window.lifehubOpenCloud=function(){const p=$c('lhCloudPanel');p.style.display=p.style.display==='block'?'none':'block';if(p.style.display==='block')p.scrollTop=0;};$c('lhCloudButton').addEventListener('click',window.lifehubOpenCloud);
 $c('lhCheck').onclick=()=>run(check);$c('lhPull').onclick=()=>run(pull);$c('lhPush').onclick=()=>run(()=>push(false));
 const originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){originalSet.call(this,k,v);if(this===localStorage&&allowed(k)&&$c('lhAuto')?.checked&&ready&&confirmedWrite){clearTimeout(timer);timer=setTimeout(()=>run(()=>push(true)),15000)}};
 $c('lhAuto').onchange=()=>{if($c('lhAuto').checked&&(!ready||!confirmedWrite)){$c('lhAuto').checked=false;status('Para ativar o automático, teste a conexão, recupere o backup se existir e faça um envio manual bem-sucedido.')}};
