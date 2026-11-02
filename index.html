@@ -638,8 +638,9 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
 <h3>LifeHub · GitHub</h3>
 <small>Repositório: <b>RCPMoraes/Planner</b>. Arquivo criptografado salvo na raiz. Nunca coloque o token no código ou envie a outra pessoa.</small>
-<label for="lhToken">Token GitHub (permissão Contents: leitura e escrita)</label>
-<input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu token aqui">
+<label for="lhToken">Token GitHub clássico (Personal Access Token classic · escopo repo)</label>
+<input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu token classic (ghp_...) aqui">
+<small>Para gerar: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic). Marque o escopo <b>repo</b>. Nunca publique o token.</small>
 <label for="lhPass">Senha de criptografia (mínimo 12 caracteres)</label>
 <input id="lhPass" type="password" autocomplete="off" placeholder="Crie uma senha forte e guarde-a">
 <small>Esta senha é necessária para recuperar seus dados em outro aparelho. Não é armazenada. Se perdê-la, não será possível abrir o backup criptografado.</small>
@@ -657,7 +658,7 @@ const $c=id=>document.getElementById(id), status=t=>$c('lhCloudStatus').textCont
 let knownSha=null,ready=false,busy=false,timer=null;
 const allowed=k=>k!=='lifehub_secrets'&&!k.startsWith('lifehub_personal_')&&!k.startsWith('draw_personal_')&&(k.startsWith('lifehub_')||k.startsWith('meeting_')||k.startsWith('inspection_')||k.startsWith('draw_'));
 const token=()=>$c('lhToken').value.trim(),pass=()=>$c('lhPass').value;
-function guard(){if(!token())throw Error('Informe o token GitHub.');if(pass().length<12)throw Error('A senha de criptografia precisa ter ao menos 12 caracteres.');if(!crypto?.subtle)throw Error('Abra pelo GitHub Pages (HTTPS) para usar criptografia.');}
+function guard(){if(!token())throw Error('Informe o Personal Access Token (classic) do GitHub.');if(pass().length<12)throw Error('A senha de criptografia precisa ter ao menos 12 caracteres.');if(!crypto?.subtle)throw Error('Abra pelo GitHub Pages (HTTPS) para usar criptografia.');}
 const enc=new TextEncoder(),dec=new TextDecoder();
 function b64(bytes){let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s)}
 function unb64(s){const v=atob(s);return Uint8Array.from(v,c=>c.charCodeAt(0))}
