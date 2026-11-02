@@ -635,162 +635,494 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 </script>
 
 <style>
-#lhCloudButton{position:fixed;right:16px;bottom:16px;z-index:9000;border:0;border-radius:50px;background:#2e5e4e;color:white;padding:12px 18px;font-weight:bold;box-shadow:0 5px 20px #0004}
-#lhCloudPanel{display:none;position:fixed;right:12px;bottom:68px;z-index:9001;width:min(380px,calc(100vw - 24px));max-height:80vh;overflow:auto;background:#fff;color:#24352f;border:1px solid #9caf9a;border-radius:14px;padding:17px;box-shadow:0 10px 35px #0005;display:none;font:14px Arial}
-#lhCloudPanel input{width:100%;margin:5px 0 12px;padding:9px;border:1px solid #bbb;border-radius:7px}
-#lhCloudPanel button{margin:5px 4px 5px 0;padding:9px 12px;border-radius:8px;border:1px solid #9caf9a;background:#e7efe8;color:#24352f;font-weight:700}
-#lhCloudPanel small{display:block;line-height:1.5}
+#lhCloudButton{position:fixed;right:16px;bottom:16px;z-index:9000;border:0;border-radius:50px;background:#2e5e4e;color:white;padding:12px 18px;font-weight:bold;box-shadow:0 5px 20px #0004;display:flex;align-items:center;gap:8px}
+#lhCloudPanel{display:none;position:fixed;right:12px;bottom:68px;z-index:9001;width:min(410px,calc(100vw - 24px));max-height:84vh;overflow:auto;background:#fff;color:#24352f;border:1px solid #9caf9a;border-radius:14px;padding:17px;box-shadow:0 10px 35px #0005;font:14px Arial,sans-serif}
+#lhCloudPanel input[type="text"],#lhCloudPanel input[type="password"]{width:100%;margin:5px 0 10px;padding:9px;border:1px solid #bbb;border-radius:7px}
+#lhCloudPanel button{margin:5px 4px 5px 0;padding:9px 12px;border-radius:8px;border:1px solid #9caf9a;background:#e7efe8;color:#24352f;font-weight:700;cursor:pointer}
+#lhCloudPanel button.primary{background:#2e5e4e;color:#fff;border-color:#2e5e4e}
+#lhCloudPanel small{display:block;line-height:1.45;color:#55635c;margin-bottom:6px}
+.lh-token-row{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center}
+.lh-storage-opts{display:flex;gap:12px;margin:4px 0 10px;font-size:12px;color:#395247}
+.lh-storage-opts label{display:inline-flex;align-items:center;gap:5px;margin:0;font-weight:600;cursor:pointer}
+.lh-storage-opts input{width:auto;margin:0}
+.lh-repo-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.lh-repo-chip{font-size:11px;padding:5px 9px!important;margin:0!important;border-radius:999px!important;background:#f2f6f3!important;border:1px solid #bfd0c2!important;cursor:pointer}
+.lh-repo-chip:hover{background:#dce9e0!important}
 </style>
 <button id="lhCloudButton" type="button">☁ Nuvem GitHub</button>
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
-<h3>LifeHub · GitHub</h3><small>Site publicado: <a href="https://rcpmoraes.github.io/Planner/index.html" target="_blank" rel="noopener noreferrer">rcpmoraes.github.io/Planner/index.html</a></small>
-<small><b>Aplicativo público:</b> RCPMoraes/Planner (GitHub Pages). <b>Sincronização:</b> RCPMoraes/Planner. O repositório é público; não envie informações sensíveis. Nunca coloque o token no código.</small>
-<label for="lhRepo">Repositório GitHub para sincronização</label>
-<input id="lhRepo" type="text" value="Planner" autocomplete="off" spellcheck="false" placeholder="Nome do repositório">
-<small>Use o repositório Planner, que contém o site. Atenção: se ele for público, os backups também serão públicos.</small>
+<h3>LifeHub · GitHub Sync</h3>
+<small>Site publicado: <a href="https://rcpmoraes.github.io/Planner/index.html" target="_blank" rel="noopener noreferrer">rcpmoraes.github.io/Planner/index.html</a></small>
+<label for="lhRepo">Repositório GitHub (deixe <b>auto</b> para detetar do token ou digite <b>usuario/repositório</b>)</label>
+<input id="lhRepo" type="text" value="rcpmoraes/Planner" autocomplete="off" spellcheck="false" placeholder="Ex.: rcpmoraes/Planner (ou deixe vazio para auto-detetar)">
+<div id="lhRepoList" class="lh-repo-chips" style="display:none"></div>
 <label for="lhToken">Personal Access Token (PAT) do GitHub</label>
-<input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu PAT (ghp_... ou github_pat_...)">
-<small>Mesmo fluxo de autenticação do Closet, mas o PAT precisa autorizar especificamente o repositório Planner. PAT classic com escopo <b>repo</b> ou fine-grained com <b>Contents: Read and write</b> no repositório Planner. O PAT do Planner é separado do token do Closet e permanece apenas nesta sessão do navegador. Nunca publique o token.</small>
-<small><b>Acesso por Token PAT no mesmo modelo do Closet.</b> Não é solicitada senha adicional. Atenção: o backup não é criptografado e ficará público se o repositório Planner for público. Backups antigos criptografados não são abertos automaticamente.</small>
-<div><button id="lhCheck" type="button">Salvar &amp; Conectar Token</button><button id="lhPull" type="button">Baixar da nuvem</button><button id="lhPush" type="button">Salvar na nuvem</button></div>
-<label><input id="lhAuto" type="checkbox" style="width:auto"> Salvar automaticamente após alterações (requer conexão testada e dados sincronizados)</label>
-<div class="lh-sync-status" aria-live="polite"><span id="lhSyncDot" class="lh-sync-dot disconnected"></span><strong id="lhSyncLabel">Desconectado</strong></div>
-<div id="lhCloudStatus" role="status" aria-live="polite" style="margin-top:9px;white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;border-radius:8px;background:#f6f6f3;color:#26362b"></div>
-<button id="lhForgetToken" type="button" style="margin-top:8px">Remover Token</button>
-<small>Exames com anexos podem tornar o arquivo grande. O backup sem senha adicional não é criptografado. No repositório público Planner, os dados do backup podem ser lidos por qualquer pessoa, mesmo sem token. Não armazene senhas neste planner.</small>
+<div class="lh-token-row">
+ <input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu PAT (ghp_... ou github_pat_...)" style="margin:0">
+ <button id="lhToggleTokenVis" type="button" title="Mostrar/ocultar token" style="margin:0;padding:9px 10px">👁</button>
 </div>
-<script>
+<div class="lh-storage-opts">
+ <label><input type="radio" name="lhTokenPersist" id="lhPersistLocal" value="local" checked> Lembrar neste navegador</label>
+ <label><input type="radio" name="lhTokenPersist" id="lhPersistSession" value="session"> Apenas nesta sessão</label>
+</div>
+<small>Aceita <b>PAT Classic</b> (escopo <code>repo</code>) ou <b>Fine-grained PAT</b> (com <i>Contents: Read and write</i>). Se o repositório configurado não for encontrado, o sistema listará automaticamente os repositórios acessíveis pelo seu token.</small>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+ <button id="lhCheck" type="button" class="primary">Salvar &amp; Conectar</button>
+ <button id="lhPull" type="button">Baixar da nuvem</button>
+ <button id="lhPush" type="button">Salvar na nuvem</button>
+</div>
+<label style="display:flex;align-items:center;gap:7px;margin-top:10px;cursor:pointer"><input id="lhAuto" type="checkbox" style="width:auto;margin:0"> Sincronizar automaticamente após alterações (debounce 10s)</label>
+<div class="lh-sync-status" aria-live="polite"><span id="lhSyncDot" class="lh-sync-dot disconnected"></span><strong id="lhSyncLabel">Desconectado</strong></div>
+<div id="lhCloudStatus" role="status" aria-live="polite" style="margin-top:9px;white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;border-radius:8px;background:#f6f6f3;color:#26362b;font-size:12px"></div>
+<button id="lhForgetToken" type="button" style="margin-top:8px">Desconectar &amp; Esquecer Token</button>
+</div>
+<script id="lh-github-sync-engine">
 (()=>{
 'use strict';
-// Repositório do site: RCPMoraes/Planner (público, GitHub Pages).
-// Repositório dos dados: RCPMoraes/Planner (público; backup sem criptografia).
-const GH_OWNER='rcpmoraes', GH_REPO='Planner', GH_PATH='lifehub-backup.json';
-const GH_API=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}`;
-let ghToken='';try{ghToken=sessionStorage.getItem('lifehub_planner_pat_token')||''}catch(e){}
-let currentFileSha=null;
+const DEFAULT_OWNER='rcpmoraes', DEFAULT_REPO='Planner', GH_PATH='lifehub-backup.json';
+const STORAGE_KEY_TOKEN='lifehub_planner_pat_token';
+const STORAGE_KEY_REPO='lifehub_planner_gh_repo';
+const STORAGE_KEY_MODE='lifehub_planner_persist_mode';
+const STORAGE_KEY_AUTO='lifehub_planner_auto_sync';
+const STORAGE_KEY_SHA='lifehub_planner_last_sha';
+
 const $c=id=>document.getElementById(id);
-const repo=()=>GH_REPO;
-const repoUrl=()=>GH_API;
-const api=()=>GH_API+'/contents/'+GH_PATH;
-const token=()=>ghToken;
-const allowed=k=>k!=='gh_pat_token'&&k!=='lifehub_planner_pat_token'&&k!=='lifehub_secrets'&&!k.startsWith('lifehub_personal_')&&!k.startsWith('draw_personal_')&&(k.startsWith('lifehub_')||k.startsWith('meeting_')||k.startsWith('inspection_')||k.startsWith('draw_'));
-const enc=new TextEncoder(),dec=new TextDecoder();
-let knownSha=null,ready=false,busy=false,confirmedWrite=false,timer=null,connectionState='disconnected';
+const enc=new TextEncoder(), dec=new TextDecoder();
+
+let ghToken='';
+let persistMode='local';
+let knownSha=null, ready=false, busy=false, timer=null, connectionState='disconnected', isPrivateRepo=false, activeRepoFull=`${DEFAULT_OWNER}/${DEFAULT_REPO}`;
+
+function sanitizeToken(raw){
+ return String(raw||'')
+  .replace(/[​-‍﻿\s"']/g,'')
+  .replace(/^(Bearer|token)\s*/i,'')
+  .trim();
+}
+
+function loadStoredConfig(){
+ try{
+  persistMode=localStorage.getItem(STORAGE_KEY_MODE)||'local';
+  const sessTok=sessionStorage.getItem(STORAGE_KEY_TOKEN);
+  const locTok=localStorage.getItem(STORAGE_KEY_TOKEN)||localStorage.getItem('gh_pat_token')||sessionStorage.getItem('gh_pat_token');
+  ghToken=sanitizeToken(sessTok||locTok||'');
+  if(sessTok&&!locTok)persistMode='session';
+  knownSha=localStorage.getItem(STORAGE_KEY_SHA)||null;
+  const savedRepo=localStorage.getItem(STORAGE_KEY_REPO);
+  if(savedRepo&&$c('lhRepo'))$c('lhRepo').value=savedRepo;
+  if($c('lhToken'))$c('lhToken').value=ghToken;
+  if($c('lhPersistLocal'))$c('lhPersistLocal').checked=(persistMode==='local');
+  if($c('lhPersistSession'))$c('lhPersistSession').checked=(persistMode==='session');
+  if($c('lhAuto'))$c('lhAuto').checked=(localStorage.getItem(STORAGE_KEY_AUTO)==='1');
+ }catch(e){}
+}
+
+function saveTokenStorage(tok){
+ ghToken=sanitizeToken(tok);
+ if($c('lhToken'))$c('lhToken').value=ghToken;
+ try{
+  const mode=$c('lhPersistSession')?.checked?'session':'local';
+  localStorage.setItem(STORAGE_KEY_MODE,mode);
+  if(mode==='local'){
+   localStorage.setItem(STORAGE_KEY_TOKEN,ghToken);
+   sessionStorage.removeItem(STORAGE_KEY_TOKEN);
+  }else{
+   sessionStorage.setItem(STORAGE_KEY_TOKEN,ghToken);
+   localStorage.removeItem(STORAGE_KEY_TOKEN);
+  }
+  if($c('lhRepo')&&$c('lhRepo').value.trim())localStorage.setItem(STORAGE_KEY_REPO,$c('lhRepo').value.trim());
+ }catch(e){}
+}
+
+function parseRepoCandidate(rawInput, fallbackOwner=DEFAULT_OWNER){
+ let raw=String(rawInput||'').trim();
+ if(!raw||raw.toLowerCase()==='auto')return null;
+ raw=raw.replace(/^https?:\/\/github\.com\//i,'').replace(/\.git$/i,'').replace(/^\/+|\/+$/g,'');
+ const parts=raw.split('/').map(s=>s.trim()).filter(Boolean);
+ if(parts.length>=2){
+  return `${parts[0]}/${parts[1]}`;
+ }
+ if(parts.length===1&&/^[\w.-]+$/.test(parts[0])){
+  return `${fallbackOwner}/${parts[0]}`;
+ }
+ return null;
+}
+
+const allowed=k=>k!==STORAGE_KEY_TOKEN&&k!==STORAGE_KEY_REPO&&k!==STORAGE_KEY_MODE&&k!==STORAGE_KEY_AUTO&&k!==STORAGE_KEY_SHA&&k!=='gh_pat_token'&&k!=='lifehub_secrets'&&!k.startsWith('lifehub_personal_')&&!k.startsWith('draw_personal_')&&(k.startsWith('lifehub_')||k.startsWith('meeting_')||k.startsWith('inspection_')||k.startsWith('draw_'));
+
 function status(msg,state){
  if(state)connectionState=state;
- $c('lhCloudStatus').textContent=msg;
+ if($c('lhCloudStatus'))$c('lhCloudStatus').textContent=msg;
  const dot=$c('lhSyncDot'),label=$c('lhSyncLabel');
  if(dot)dot.className='lh-sync-dot '+connectionState;
- if(label)label.textContent=({disconnected:'Desconectado',checking:'Verificando',readable:'Conta autenticada',online:'Sincronização ativa',syncing:'Sincronizando',error:'Falha — veja detalhes abaixo'})[connectionState]||connectionState;
+ if(label)label.textContent=({disconnected:'Desconectado',checking:'Verificando...',readable:'Conectado (Pronto)',online:'Sincronização ativa',syncing:'Sincronizando...',error:'Atenção / Falha'})[connectionState]||connectionState;
 }
-function guard(){if(!token())throw Error('Informe seu Personal Access Token (PAT) do GitHub.');if(!/^[\w.-]+$/.test(repo()))throw Error('Nome de repositório inválido.')}
-function ghHeaders(token=ghToken){return {'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}}
-async function ghRequest(path,options={},token=ghToken){
+
+function ghHeaders(tok=ghToken, extra={}){
+ const h={
+  'Authorization':'Bearer '+sanitizeToken(tok),
+  'Accept':'application/vnd.github+json'
+ };
+ if(extra&&Object.keys(extra).length)Object.assign(h,extra);
+ return h;
+}
+
+async function rawGhFetch(url, options={}, tok=ghToken){
  let response;
- try{response=await fetch(path.startsWith('https:')?path:GH_API+path,{...options,headers:{...ghHeaders(token),...(options.headers||{})}})}
- catch(e){throw Error('Não foi possível consultar a API do GitHub ('+(e?.name||'falha de rede')+'). Verifique internet, bloqueadores e se o site foi aberto via HTTPS. Dados locais preservados.')}
- if(!response.ok){let data={};try{data=await response.json()}catch(e){}
-  let msg=response.status===401?'Token inválido, expirado ou revogado.':response.status===403?'Acesso negado, limite de API ou falta de permissão Contents: Read and write.':response.status===404?'Repositório ou arquivo não encontrado para este token.':response.status===409||response.status===422?'Conflito de versão do arquivo remoto.':response.status===429?'Limite de solicitações do GitHub. Aguarde e tente novamente.':`GitHub retornou HTTP ${response.status}.`;
-  const err=Error('HTTP '+response.status+': '+msg+(data.message&&response.status!==401?' '+String(data.message).slice(0,160):''));err.status=response.status;throw err;
+ try{
+  response=await fetch(url,{
+   method:options.method||'GET',
+   headers:ghHeaders(tok, options.headers||{}),
+   ...(options.body?{body:options.body}:{})
+  });
+ }catch(e){
+  throw Error('Falha de rede ao contactar api.github.com ('+(e?.message||'bloqueio CORS/AdBlock ou sem internet')+'). Se estiver com bloqueador de anúncios ou antivírus web ativo, desative-o para esta página.');
  }
- return response.json();
+ let data=null;
+ try{data=await response.json()}catch(e){}
+ return {ok:response.ok, status:response.status, data};
 }
-function b64(bytes){let out='';for(let i=0;i<bytes.length;i+=8192)out+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(out)}
-function unb64(s){const bin=atob(s.replace(/\s/g,''));return Uint8Array.from(bin,c=>c.charCodeAt(0))}
-async function getRemote(){try{return await ghRequest('/contents/'+GH_PATH)}catch(e){if(e.status===404)return null;throw e}}
-async function getBackup(file){
+
+function renderRepoChips(repos){
+ const box=$c('lhRepoList');
+ if(!box)return;
+ box.innerHTML='';
+ if(!Array.isArray(repos)||!repos.length){
+  box.style.display='none';
+  return;
+ }
+ box.style.display='flex';
+ const label=document.createElement('small');
+ label.style.width='100%';
+ label.style.margin='0 0 2px';
+ label.innerHTML='<b>Repositórios encontrados no seu Token (clique para usar):</b>';
+ box.appendChild(label);
+ repos.slice(0,12).forEach(r=>{
+  const btn=document.createElement('button');
+  btn.type='button';
+  btn.className='lh-repo-chip';
+  btn.textContent=r.full_name+(r.private?' 🔒':'');
+  btn.onclick=()=>{
+   $c('lhRepo').value=r.full_name;
+   try{localStorage.setItem(STORAGE_KEY_REPO,r.full_name)}catch(e){}
+   run(check);
+  };
+  box.appendChild(btn);
+ });
+}
+
+async function resolveAndVerifyRepo(){
+ ghToken=sanitizeToken($c('lhToken')?.value||ghToken);
+ if(!ghToken||ghToken.length<10)throw Error('Cole um Personal Access Token (PAT) válido do GitHub.');
+
+ status('Autenticando token no GitHub...','checking');
+
+ // 1. Tenta descobrir usuário e repositórios acessíveis pelo token
+ let loginUser=DEFAULT_OWNER;
+ const userRes=await rawGhFetch('https://api.github.com/user');
+ if(userRes.status===401){
+  throw Error('HTTP 401: Token inválido, expirado ou revogado no GitHub. Gere um novo token e tente novamente.');
+ }
+ if(userRes.ok&&userRes.data?.login){
+  loginUser=userRes.data.login;
+ }
+
+ const rawRepoVal=($c('lhRepo')?.value||'').trim();
+ const candidates=[];
+ const parsedPrimary=parseRepoCandidate(rawRepoVal, loginUser);
+ if(parsedPrimary)candidates.push(parsedPrimary);
+ const parsedDefaultOwner=parseRepoCandidate(rawRepoVal, DEFAULT_OWNER);
+ if(parsedDefaultOwner&&!candidates.includes(parsedDefaultOwner))candidates.push(parsedDefaultOwner);
+ if(!candidates.includes(`${loginUser}/${DEFAULT_REPO}`))candidates.push(`${loginUser}/${DEFAULT_REPO}`);
+ if(!candidates.includes(`${DEFAULT_OWNER}/${DEFAULT_REPO}`))candidates.push(`${DEFAULT_OWNER}/${DEFAULT_REPO}`);
+
+ // 2. Testa os candidatos diretos
+ for(const cand of candidates){
+  status(`Verificando repositório ${cand}...`,'checking');
+  const rRes=await rawGhFetch(`https://api.github.com/repos/${cand}`);
+  if(rRes.ok&&rRes.data?.full_name){
+   activeRepoFull=rRes.data.full_name;
+   isPrivateRepo=!!rRes.data.private;
+   if($c('lhRepo'))$c('lhRepo').value=activeRepoFull;
+   try{localStorage.setItem(STORAGE_KEY_REPO,activeRepoFull)}catch(e){}
+   if(rRes.data.permissions&&rRes.data.permissions.push===false){
+    throw Error(`Conectado a ${activeRepoFull}, mas o token tem apenas permissão de leitura (Read-only). Ative "Contents: Read and write" nas configurações do PAT.`);
+   }
+   const file=await getRemote(activeRepoFull);
+   knownSha=file?.sha||null;
+   try{if(knownSha)localStorage.setItem(STORAGE_KEY_SHA,knownSha);else localStorage.removeItem(STORAGE_KEY_SHA)}catch(e){}
+   ready=true;
+   return {file, repoInfo:rRes.data, full:activeRepoFull, loginUser};
+  }
+ }
+
+ // 3. Se nenhum candidato direto respondeu, lista os repositórios que o token enxerga
+ status('Procurando repositórios autorizados para este token...','checking');
+ const listRes=await rawGhFetch('https://api.github.com/user/repos?per_page=100&sort=updated');
+ if(listRes.ok&&Array.isArray(listRes.data)&&listRes.data.length){
+  renderRepoChips(listRes.data);
+  const preferred=listRes.data.find(r=>/planner|lifehub/i.test(r.name))|| (listRes.data.length===1?listRes.data[0]:null);
+  if(preferred){
+   activeRepoFull=preferred.full_name;
+   isPrivateRepo=!!preferred.private;
+   if($c('lhRepo'))$c('lhRepo').value=activeRepoFull;
+   try{localStorage.setItem(STORAGE_KEY_REPO,activeRepoFull)}catch(e){}
+   const file=await getRemote(activeRepoFull);
+   knownSha=file?.sha||null;
+   ready=true;
+   return {file, repoInfo:preferred, full:activeRepoFull, loginUser};
+  }
+  const names=listRes.data.slice(0,6).map(r=>r.full_name).join(', ');
+  throw Error(`Token autenticado (conta ${loginUser}), mas o repositório "${rawRepoVal||'Planner'}" não foi encontrado.
+Selecione um dos seus repositórios acima (${names}) ou crie o repositório "Planner" no seu GitHub.`);
+ }
+
+ throw Error(`Token autenticado (conta ${loginUser}), mas este token não possui acesso a nenhum repositório.
+Se for um Fine-grained PAT, edite o token no GitHub → "Repository access" → selecione o repositório desejado e marque "Repository permissions → Contents: Read and write".`);
+}
+
+function b64(bytes){
+ let out='';
+ for(let i=0;i<bytes.length;i+=8192)out+=String.fromCharCode(...bytes.subarray(i,i+8192));
+ return btoa(out);
+}
+function unb64(s){
+ const bin=atob(s.replace(/\s/g,''));
+ return Uint8Array.from(bin,c=>c.charCodeAt(0));
+}
+
+async function getRemote(repoFull=activeRepoFull){
+ const res=await rawGhFetch(`https://api.github.com/repos/${repoFull}/contents/${GH_PATH}`);
+ if(res.status===404)return null;
+ if(!res.ok)throw Error(`HTTP ${res.status} ao verificar ${GH_PATH}: ${res.data?.message||'erro na API'}`);
+ return res.data;
+}
+
+async function getBackup(file, repoFull=activeRepoFull){
  let content=file.content;
- if(!content&&file.sha){const blob=await ghRequest('/git/blobs/'+encodeURIComponent(file.sha));content=blob.content}
- if(!content)throw Error('O backup não pôde ser lido pela API do GitHub.');
- let obj;try{obj=JSON.parse(dec.decode(unb64(content)))}catch(e){throw Error('Arquivo de backup inválido ou incompleto. Nenhum dado local foi alterado.')}
- if(obj?.format==='lifehub-aesgcm-v1')throw Error('Backup criptografado antigo: é necessário migrá-lo usando a versão anterior.');
- if(!['lifehub-token-classic-private-v1','lifehub-token-classic-v2'].includes(obj?.format)||!obj.payload||typeof obj.payload.data!=='object'||Array.isArray(obj.payload.data))throw Error('Formato de backup não reconhecido.');
- return obj.payload;
+ if((!content||file.encoding!=='base64')&&file.sha){
+  const blobRes=await rawGhFetch(`https://api.github.com/repos/${repoFull}/git/blobs/${encodeURIComponent(file.sha)}`);
+  if(!blobRes.ok)throw Error('Não foi possível baixar o blob do backup.');
+  content=blobRes.data?.content;
+ }
+ if(!content)throw Error('O conteúdo do backup remoto está vazio ou ilegível.');
+ let obj;
+ try{obj=JSON.parse(dec.decode(unb64(content)))}catch(e){throw Error('Arquivo de backup remoto inválido ou corrompido.');}
+ if(obj?.format==='lifehub-aesgcm-v1')throw Error('Backup criptografado antigo detectado.');
+ const payload=obj?.payload||obj;
+ if(!payload||typeof payload.data!=='object'||Array.isArray(payload.data))throw Error('Estrutura do arquivo de backup não reconhecida.');
+ return payload;
 }
-async function ghValidate(token=ghToken){
- if(!token)throw Error('Informe o token GitHub.');
- status('Etapa 1/3: verificando autenticação do PAT na API GitHub...','checking');
- const account=await ghRequest('https://api.github.com/user',{},token);
- status('Etapa 2/3: PAT autenticado como '+(account.login||'usuário')+'. Verificando acesso a RCPMoraes/Planner...','checking');
- let repo;try{repo=await ghRequest('',{},token)}catch(e){if(e.status===404)throw Error('PAT autenticado, mas sem acesso ao repositório rcpmoraes/Planner. Se o PAT é fine-grained, inclua o repositório Planner em Repository access (o token do Closet pode não ter acesso).');throw e}
- if(repo.full_name?.toLowerCase()!==(GH_OWNER+'/'+GH_REPO).toLowerCase())throw Error('Repositório GitHub diferente do esperado.');if(repo.permissions?.push===false)throw Error('PAT autenticado, mas sem permissão de escrita no Planner. Fine-grained PAT: Contents → Read and write.');
- status('Etapa 3/3: repositório acessível. Verificando arquivo de backup...','checking');
- let file=null;
- try{file=await ghRequest('/contents/'+GH_PATH,{},token)}catch(e){if(e.status!==404)throw e}
- currentFileSha=file?.sha||null;return {exists:!!file};
-}
-async function assertAccountWrite(){
- const checked=await ghValidate();
- const user=await ghRequest('https://api.github.com/user');
- return user.login||'usuário';
-}
+
 async function snapshot(){
- const data={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(allowed(k))data[k]=localStorage.getItem(k)}
+ const data={};
+ for(let i=0;i<localStorage.length;i++){
+  const k=localStorage.key(i);
+  if(allowed(k))data[k]=localStorage.getItem(k);
+ }
  const exams=[];
- if(typeof examAll==='function'){for(const x of await examAll()){const y={...x};if(x.file&&typeof fileToDataURL==='function'){y.fileData=await fileToDataURL(x.file);y.fileName=x.fileName||x.file.name;y.fileType=x.fileType||x.file.type;delete y.file}exams.push(y)}}
+ if(typeof examAll==='function'){
+  try{
+   for(const x of await examAll()){
+    const y={...x};
+    if(x.file&&typeof fileToDataURL==='function'){
+     y.fileData=await fileToDataURL(x.file);
+     y.fileName=y.fileName||x.file.name;
+     y.fileType=y.fileType||x.file.type;
+     delete y.file;
+    }
+    exams.push(y);
+   }
+  }catch(e){}
+ }
  return {version:2,date:new Date().toISOString(),data,exams};
 }
+
 async function check(){
- ready=false;confirmedWrite=false;status('Autenticando PAT e verificando acesso ao repositório...','checking');
- const login=await assertAccountWrite(),file=await getRemote();
- knownSha=file?.sha||null;currentFileSha=knownSha;ready=!file;
- status(file?`Conta ${login} autenticada em ${GH_OWNER}/${GH_REPO}. Backup encontrado. Baixe-o antes de atualizar.`:`Conta ${login} autenticada em ${GH_OWNER}/${GH_REPO}. Nenhum backup encontrado; primeiro envio disponível.`,'readable');
+ const {file,full,loginUser}=await resolveAndVerifyRepo();
+ saveTokenStorage(ghToken);
+ if(file){
+  status(`Conectado com sucesso!
+Conta: ${loginUser} · Repositório: ${full} (${isPrivateRepo?'privado':'público'}).
+Backup remoto localizado (SHA ${file.sha.slice(0,7)}). Pronto para Baixar ou Salvar na nuvem.`,'online');
+ }else{
+  status(`Conectado com sucesso!
+Conta: ${loginUser} · Repositório: ${full} (${isPrivateRepo?'privado':'público'}).
+Ainda não há arquivo ${GH_PATH}; clique em "Salvar na nuvem" para realizar o primeiro backup.`,'readable');
+ }
 }
+
 async function pull(){
- guard();await assertAccountWrite();
- const file=await getRemote();if(!file)throw Error('Ainda não existe backup no repositório.');
- const obj=await getBackup(file);
+ const {file,full}=await resolveAndVerifyRepo();
+ saveTokenStorage(ghToken);
+ if(!file)throw Error(`Ainda não existe arquivo ${GH_PATH} no repositório ${full}.`);
+ status('Baixando e validando backup remoto...','syncing');
+ const obj=await getBackup(file, full);
  const entries=Object.entries(obj.data).filter(([k,v])=>allowed(k)&&typeof v==='string');
- if(!confirm(`Baixar ${entries.length} registros e ${Array.isArray(obj.exams)?obj.exams.length:0} exames do GitHub? Isso substituirá os registros correspondentes deste navegador. Faça backup local antes de continuar.`))return;
- status('Restaurando backup...','syncing');
- for(const [k,v] of entries)localStorage.setItem(k,v);
- if(Array.isArray(obj.exams)&&typeof examPut==='function'){for(const x of obj.exams){const y={...x};if(y.fileData&&typeof dataURLToFile==='function'){y.file=dataURLToFile(y.fileData,y.fileName,y.fileType);delete y.fileData}await examPut(y)}}
- knownSha=file.sha;currentFileSha=knownSha;ready=true;confirmedWrite=false;
- status(`Download concluído: ${entries.length} registros. Atualize a página para visualizar. Faça um envio manual para ativar a sincronização automática.`,'readable');
+ const examCount=Array.isArray(obj.exams)?obj.exams.length:0;
+ if(!confirm(`Restaurar ${entries.length} registro(s) e ${examCount} exame(s) de ${full}?
+Isso atualizará os dados locais deste navegador.`)){
+  status('Restauração cancelada pelo usuário.','online');
+  return;
+ }
+ status('Aplicando dados localmente...','syncing');
+ for(const [k,v] of entries)originalSet.call(localStorage,k,v);
+ if(Array.isArray(obj.exams)&&typeof examPut==='function'){
+  for(const x of obj.exams){
+   const y={...x};
+   if(y.fileData&&typeof dataURLToFile==='function'){
+    y.file=dataURLToFile(y.fileData,y.fileName,y.fileType);
+    delete y.fileData;
+   }
+   await examPut(y);
+  }
+ }
+ knownSha=file.sha;
+ try{localStorage.setItem(STORAGE_KEY_SHA,knownSha)}catch(e){}
+ ready=true;
+ status(`Backup restaurado com sucesso (${entries.length} registros e ${examCount} exames). Recarregando...`,'online');
+ setTimeout(()=>location.reload(),800);
 }
+
 async function push(auto=false){
- guard();await assertAccountWrite();
- if(!ready)throw Error('Conecte sua conta e, caso haja backup remoto, baixe-o antes de enviar.');
- if(auto&&!confirmedWrite)return;
- if(!auto&&!confirm('ATENÇÃO: o repositório Planner é público. O backup não é criptografado e pode expor informações pessoais e exames. Deseja realmente publicar os dados?'))return;
- status('Verificando versão remota...','syncing');
- const remote=await getRemote(),sha=remote?.sha||null;
- if(sha!==knownSha){ready=false;confirmedWrite=false;throw Error('O backup mudou em outro dispositivo. Baixe-o antes de enviar para evitar sobrescrever alterações.')}
+ const {full}=await resolveAndVerifyRepo();
+ saveTokenStorage(ghToken);
+ status('Preparando dados e verificando versão remota...','syncing');
+ const remote=await getRemote(full);
+ const remoteSha=remote?.sha||null;
+
  const snap=await snapshot();
- if(!Object.keys(snap.data).length&&!snap.exams.length)throw Error('Backup local vazio. Envio bloqueado para proteger dados remotos.');
+ if(!Object.keys(snap.data).length&&!snap.exams.length){
+  if(auto)return;
+  if(!confirm('Nenhum registro local encontrado neste navegador. Deseja realmente enviar um backup vazio?'))return;
+ }
+
  const raw=enc.encode(JSON.stringify({format:'lifehub-token-classic-v2',payload:snap}));
- if(raw.length>90*1024*1024)throw Error('Backup muito grande para a API do GitHub.');
- const body={message:`Atualizar LifeHub ${new Date().toISOString()}`,content:b64(raw),...(sha?{sha}:{})};
- const result=await ghRequest('/contents/'+GH_PATH,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
- knownSha=result.content?.sha||null;currentFileSha=knownSha;ready=true;confirmedWrite=true;
- status(`Dados atualizados no GitHub: ${Object.keys(snap.data).length} registros e ${snap.exams.length} exames. ${new Date().toLocaleString('pt-BR')}`,'online');
+ if(raw.length>90*1024*1024)throw Error('Backup excede o limite de tamanho da API do GitHub.');
+
+ const putBody=sha=>({
+  message:`Atualizar LifeHub (${new Date().toLocaleString('pt-BR')})`,
+  content:b64(raw),
+  ...(sha?{sha}:{})
+ });
+
+ let putRes=await rawGhFetch(`https://api.github.com/repos/${full}/contents/${GH_PATH}`,{
+  method:'PUT',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify(putBody(remoteSha))
+ });
+
+ if(putRes.status===409||putRes.status===422){
+  const latest=await getRemote(full);
+  putRes=await rawGhFetch(`https://api.github.com/repos/${full}/contents/${GH_PATH}`,{
+   method:'PUT',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify(putBody(latest?.sha||null))
+  });
+ }
+
+ if(!putRes.ok){
+  throw Error(`HTTP ${putRes.status} ao salvar no GitHub: ${putRes.data?.message||'Verifique se o token possui permissão Contents: Read and write.'}`);
+ }
+
+ knownSha=putRes.data?.content?.sha||null;
+ try{if(knownSha)localStorage.setItem(STORAGE_KEY_SHA,knownSha)}catch(e){}
+ ready=true;
+ status(`Sincronizado com ${full}: ${Object.keys(snap.data).length} registros e ${snap.exams.length} exames salvos às ${new Date().toLocaleTimeString('pt-BR')}.`,'online');
 }
-async function run(fn){if(busy)return;busy=true;try{await fn()}catch(e){ready=false;confirmedWrite=false;$c('lhAuto').checked=false;const detail=String(e?.message||e||'Erro não identificado').replace(/(ghp_|github_pat_)[A-Za-z0-9_]+/g,'[PAT oculto]');status('Falha de conexão: '+detail+'\n\nO PAT não será exibido. Verifique o acesso ao repositório Planner, e não apenas ao Closet.','error');console.error('[LifeHub GitHub] Falha de conexão:',{name:e?.name,status:e?.status,message:detail})}finally{busy=false}}
-function resetConnection(){clearTimeout(timer);ready=false;confirmedWrite=false;knownSha=null;$c('lhAuto').checked=false;status('Configuração alterada. Conecte novamente.','disconnected')}
-$c('lhToken').value=ghToken;
-$c('lhForgetToken').onclick=()=>{ghToken='';try{sessionStorage.removeItem('lifehub_planner_pat_token')}catch(e){};$c('lhToken').value='';resetConnection()};
-$c('lhRepo').value=GH_REPO;
-$c('lhRepo').readOnly=true;
-$c('lhRepo').title='Repositório fixo: RCPMoraes/Planner';
-$c('lhToken').addEventListener('input',()=>{ghToken=$c('lhToken').value.trim();resetConnection()});
-window.lifehubOpenCloud=function(){const panel=$c('lhCloudPanel');const opening=getComputedStyle(panel).display==='none';panel.style.display=opening?'block':'none';if(opening)panel.scrollTop=0};
-$c('lhCloudButton').addEventListener('click',window.lifehubOpenCloud);
-$c('lhCheck').onclick=()=>run(async()=>{
- ghToken=$c('lhToken').value.trim();
- if(!ghToken||ghToken.length<20)throw Error('Cole um PAT completo do GitHub.');
- await check();
- try{sessionStorage.setItem('lifehub_planner_pat_token',ghToken)}catch(e){}
+
+async function run(fn){
+ if(busy)return;
+ busy=true;
+ try{
+  await fn();
+ }catch(e){
+  const detail=String(e?.message||e||'Erro não identificado').replace(/(ghp_|github_pat_|gho_)[A-Za-z0-9_]+/g,'[PAT oculto]');
+  status('Falha na conexão: '+detail,'error');
+  console.error('[LifeHub GitHub Sync]',e);
+ }finally{
+  busy=false;
+ }
+}
+
+function resetConnection(msg='Desconectado.'){
+ clearTimeout(timer);
+ ready=false;
+ knownSha=null;
+ status(msg,'disconnected');
+}
+
+loadStoredConfig();
+
+$c('lhToggleTokenVis')?.addEventListener('click',()=>{
+ const inp=$c('lhToken');
+ if(!inp)return;
+ inp.type=inp.type==='password'?'text':'password';
 });
+
+$c('lhForgetToken').onclick=()=>{
+ ghToken='';
+ try{
+  sessionStorage.removeItem(STORAGE_KEY_TOKEN);
+  localStorage.removeItem(STORAGE_KEY_TOKEN);
+  localStorage.removeItem(STORAGE_KEY_SHA);
+ }catch(e){}
+ if($c('lhToken'))$c('lhToken').value='';
+ if($c('lhAuto'))$c('lhAuto').checked=false;
+ renderRepoChips([]);
+ resetConnection('Token removido deste navegador.');
+};
+
+$c('lhToken').addEventListener('input',()=>{
+ ghToken=sanitizeToken($c('lhToken').value);
+});
+
+$c('lhRepo').addEventListener('change',()=>{
+ try{localStorage.setItem(STORAGE_KEY_REPO,$c('lhRepo').value.trim())}catch(e){}
+ ready=false;
+});
+
+[$c('lhPersistLocal'),$c('lhPersistSession')].forEach(r=>r?.addEventListener('change',()=>{
+ if(ghToken)saveTokenStorage(ghToken);
+}));
+
+window.lifehubOpenCloud=function(){
+ const panel=$c('lhCloudPanel');
+ const opening=getComputedStyle(panel).display==='none';
+ panel.style.display=opening?'block':'none';
+ if(opening)panel.scrollTop=0;
+};
+
+$c('lhCheck').onclick=()=>run(check);
 $c('lhPull').onclick=()=>run(pull);
 $c('lhPush').onclick=()=>run(()=>push(false));
-const originalSet=Storage.prototype.setItem;
-Storage.prototype.setItem=function(k,v){originalSet.call(this,k,v);if(this===localStorage&&allowed(k)&&$c('lhAuto')?.checked&&ready&&confirmedWrite){clearTimeout(timer);timer=setTimeout(()=>run(()=>push(true)),15000)}};
-$c('lhAuto').onchange=()=>{if($c('lhAuto').checked&&(!ready||!confirmedWrite)){$c('lhAuto').checked=false;status('Primeiro conecte a conta, baixe o backup existente e confirme um envio manual.')}};
 
+const originalSet=Storage.prototype.setItem;
+Storage.prototype.setItem=function(k,v){
+ originalSet.call(this,k,v);
+ if(this===localStorage&&allowed(k)&&$c('lhAuto')?.checked&&ghToken){
+  clearTimeout(timer);
+  timer=setTimeout(()=>run(()=>push(true)),10000);
+ }
+};
+
+$c('lhAuto').onchange=()=>{
+ try{localStorage.setItem(STORAGE_KEY_AUTO,$c('lhAuto').checked?'1':'0')}catch(e){}
+ if($c('lhAuto').checked&&!ghToken){
+  $c('lhAuto').checked=false;
+  status('Informe e conecte seu Token PAT primeiro para ativar o salvamento automático.','error');
+ }
+};
+
+if(ghToken){
+ if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',()=>run(check));
+ }else{
+  run(check);
+ }
+}
 })();
 </script>
-
-
 <script id="lh-dashboard-script">
 (function(){
 'use strict';
