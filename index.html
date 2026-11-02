@@ -644,24 +644,23 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 <button id="lhCloudButton" type="button">☁ Nuvem GitHub</button>
 <div id="lhCloudPanel" role="dialog" aria-label="Sincronização GitHub">
 <h3>LifeHub · GitHub</h3>
-<small><b>Aplicativo público:</b> RCPMoraes/Planner (GitHub Pages). <b>Backup privado:</b> RCPMoraes/Planner-Backup. Crie o repositório <b>Planner-Backup</b> como privado antes de conectar. Nunca coloque o token no código.</small>
+<small><b>Conexão pública:</b> RCPMoraes/Planner. Os backups ficam no mesmo repositório público do site. Nunca coloque o token no código.</small>
 <label for="lhToken">Token GitHub clássico (Personal Access Token classic · escopo repo)</label>
 <input id="lhToken" type="password" autocomplete="off" placeholder="Cole seu token classic (ghp_...) aqui">
 <small>Para gerar: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic). Marque o escopo <b>repo</b>. Nunca publique o token.</small>
-<small><b>Acesso somente com Token Classic.</b> Não é solicitada senha adicional. Por segurança, backups sem criptografia só podem ser enviados para repositórios privados. Backups antigos criptografados não são abertos automaticamente.</small>
+<small><b>Acesso somente com Token Classic, sem segunda senha.</b> Atenção: o backup não é criptografado e poderá ser lido por qualquer pessoa na internet, inclusive no histórico do GitHub. Não envie informações pessoais ou exames sensíveis.</small>
 <div><button id="lhCheck" type="button">Testar conexão</button><button id="lhPull" type="button">Baixar da nuvem</button><button id="lhPush" type="button">Salvar na nuvem</button></div>
 <label><input id="lhAuto" type="checkbox" style="width:auto"> Salvar automaticamente após alterações (requer conexão testada e dados sincronizados)</label>
 <div class="lh-sync-status" aria-live="polite"><span id="lhSyncDot" class="lh-sync-dot disconnected"></span><strong id="lhSyncLabel">Desconectado</strong></div>
 <div id="lhCloudStatus" role="status" style="margin-top:9px;white-space:pre-wrap"></div>
 <button id="lhForgetToken" type="button" style="margin-top:8px">Limpar token e desconectar</button>
-<small>Exames com anexos podem tornar o arquivo grande. O backup sem senha adicional não é criptografado. O sistema só aceita o repositório privado Planner-Backup para guardar dados; o site Planner continua público. Não armazene senhas neste planner.</small>
+<small><b>AVISO:</b> este modo salva dados sem criptografia em repositório público. Registros e anexos podem ficar permanentemente expostos no histórico do GitHub, mesmo após exclusão.</small>
 </div>
 <script>
 (()=>{
 'use strict';
-// Repositório do site: RCPMoraes/Planner (público, GitHub Pages).
-// Repositório dos dados: RCPMoraes/Planner-Backup (obrigatoriamente privado).
-const owner='RCPMoraes',repo='Planner-Backup',path='lifehub-dados-criptografados.json';
+// Site e backup no mesmo repositório PÚBLICO. Backup NÃO criptografado.
+const owner='RCPMoraes',repo='Planner',path='lifehub-backup-publico.json';
 const api=`https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 const $c=id=>document.getElementById(id);
 let connectionState='disconnected';
@@ -680,24 +679,37 @@ function guard(){if(!token())throw Error('Informe o Personal Access Token (class
 const enc=new TextEncoder(),dec=new TextDecoder();
 function b64(bytes){let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s)}
 function unb64(s){const v=atob(s);return Uint8Array.from(v,c=>c.charCodeAt(0))}
-async function assertPrivateRepo(){
- const r=await fetch(`https://api.github.com/repos/${owner}/${repo}`,{headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+async function githubJSON(url,opts={}){
+ let r;
+ try{r=await fetch(url,{...opts,headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opts.headers||{})},cache:'no-store'})}
+ catch(e){throw Error('Falha de rede ao acessar o GitHub: '+e.message)}
  const j=await r.json().catch(()=>({}));
- if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'Não foi possível verificar o repositório.'}`);
- if(j.private!==true)throw Error('O repositório de backup Planner-Backup não é privado. Crie ou torne PRIVADO RCPMoraes/Planner-Backup. Mantenha RCPMoraes/Planner público para o site. Nenhum dado será enviado.');
+ if(r.status===401)throw Error('401 — Token não reconhecido pelo GitHub. Confira se foi copiado inteiro, não expirou nem foi revogado. Gere um novo Token Classic (escopo repo), se necessário. Nunca envie o token aqui.');
+ if(r.status===403)throw Error('403 — Token reconhecido, mas sem permissão ou acesso bloqueado. Verifique o escopo repo e as permissões da conta. '+(j.message||''));
+ if(r.status===404)throw Error('404 — Repositório Planner não encontrado ou sem acesso de escrita. Confira o proprietário e o token.');
+ if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'Falha na conexão'}`);
+ return j;
+}
+async function assertPublicRepo(){
+ const user=await githubJSON('https://api.github.com/user');
+ if(!user.login)throw Error('Não foi possível confirmar a conta autenticada pelo token.');
+ const j=await githubJSON(`https://api.github.com/repos/${owner}/${repo}`);
+ if(j.private!==false)throw Error('O repositório Planner não está público. Confira a configuração de visibilidade.');
+ if(!j.permissions?.push)throw Error('O token não possui permissão de gravação no repositório Planner. Verifique escopo repo e acesso de escrita.');
+ return user.login;
 }
 async function decrypt(obj){
  if(obj?.format==='lifehub-aesgcm-v1')throw Error('Este backup antigo está criptografado com uma senha. Para migrar, abra-o primeiro na versão anterior do LifeHub e depois salve na nova versão.');
- if(obj?.format!=='lifehub-token-classic-private-v1')throw Error('Formato de backup desconhecido.');
+ if(!['lifehub-token-classic-public-v1','lifehub-token-classic-private-v1'].includes(obj?.format))throw Error('Formato de backup desconhecido.');
  return obj.payload;
 }
-async function request(method,body){let r=await fetch(api,{method,headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});if(r.status===404&&method==='GET')return null;let j=await r.json().catch(()=>({}));if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'falha na conexão'}`);return j}
+async function request(method,body){let r=await fetch(api,{method,headers:{Authorization:`Bearer ${token()}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});if(r.status===404&&method==='GET')return null;let j=await r.json().catch(()=>({}));if(r.status===401)throw Error('401 — Token inválido, expirado ou revogado. Gere um novo Token Classic com escopo repo.');if(r.status===403)throw Error('403 — Permissão insuficiente para ler/gravar o backup. Confira o escopo repo.');if(!r.ok)throw Error(`GitHub ${r.status}: ${j.message||'falha na conexão'}`);return j}
 async function getRemote(){return await request('GET')}
 async function snapshot(){let data={};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(allowed(k))data[k]=localStorage.getItem(k)}let exams=[];if(typeof examAll==='function'){for(const x of await examAll()){let y={...x};if(x.file&&typeof fileToDataURL==='function'){y.fileData=await fileToDataURL(x.file);y.fileName=x.fileName||x.file.name;y.fileType=x.fileType||x.file.type;delete y.file}exams.push(y)}}return {version:2,date:new Date().toISOString(),data,exams}}
-async function check(){guard();ready=false;confirmedWrite=false;status('Verificando o Token Classic e o repositório privado...','checking');await assertPrivateRepo();const r=await getRemote();knownSha=r?.sha||null;ready=false;status(r?'Leitura autorizada. Há um backup na nuvem: baixe-o antes de enviar alterações.':'Leitura autorizada. Ainda não há backup: faça o primeiro envio manual.', 'readable');if(!r)ready=true}
-async function pull(){guard();await assertPrivateRepo();if(!confirm('Baixar dados da nuvem e substituir os registros correspondentes neste aparelho? Faça um backup local antes de continuar.'))return;status('Baixando dados do repositório privado...','syncing');const r=await getRemote();if(!r)throw Error('Nenhum backup encontrado na nuvem.');let encrypted;{let c=await request('GET');encrypted=JSON.parse(dec.decode(unb64(c.content.replace(/\s/g,''))))}
+async function check(){guard();ready=false;confirmedWrite=false;status('Validando token e acesso ao backup público...','checking');const login=await assertPublicRepo();const r=await getRemote();knownSha=r?.sha||null;ready=false;status(r?`Token validado (${login}). Backup encontrado; baixe-o antes de enviar alterações.`:`Token validado (${login}). Repositório privado acessível; faça o primeiro envio manual.`, 'readable');if(!r)ready=true}
+async function pull(){guard();await assertPublicRepo();if(!confirm('Baixar dados da nuvem e substituir os registros correspondentes neste aparelho? Faça um backup local antes de continuar.'))return;status('Baixando dados do repositório público...','syncing');const r=await getRemote();if(!r)throw Error('Nenhum backup encontrado na nuvem.');let encrypted;{let c=await request('GET');encrypted=JSON.parse(dec.decode(unb64(c.content.replace(/\s/g,''))))}
 const obj=await decrypt(encrypted);if(!obj?.data||typeof obj.data!=='object')throw Error('Dados do backup inválidos.');const entries=Object.entries(obj.data).filter(([k])=>allowed(k));entries.forEach(([k,v])=>localStorage.setItem(k,v));if(Array.isArray(obj.exams)&&typeof examPut==='function'){for(let x of obj.exams){let y={...x};if(y.fileData&&typeof dataURLToFile==='function'){y.file=dataURLToFile(y.fileData,y.fileName,y.fileType);delete y.fileData}await examPut(y)}}knownSha=r.sha;ready=true;status(`Recuperados ${entries.length} registros e ${obj.exams?.length||0} exames. Atualize a página para visualizar. Para validar escrita, clique em “Salvar na nuvem” manualmente.`, 'readable')}
-async function push(auto=false){guard();await assertPrivateRepo();if(!ready)throw Error('Antes de salvar, teste a conexão e, se já houver dados, baixe-os.');if(auto&&!confirmedWrite)throw Error('Faça primeiro um envio manual para habilitar o automático.');status('Verificando versão remota...','syncing');let remote=await getRemote();if((remote?.sha||null)!==knownSha){ready=false;throw Error('A nuvem mudou em outro aparelho. Baixe os dados primeiro para evitar sobrescrever alterações.')}let snap=await snapshot();status(`Preparando ${Object.keys(snap.data).length} registros para o repositório privado...`);let raw=enc.encode(JSON.stringify({format:'lifehub-token-classic-private-v1',payload:snap}));if(raw.length>90*1024*1024)throw Error('Backup muito grande para o GitHub.');let payload={message:`Atualizar backup LifeHub ${new Date().toISOString()}`,content:b64(raw),...(knownSha?{sha:knownSha}:{})};let out=await request('PUT',payload);knownSha=out.content.sha;ready=true;confirmedWrite=true;status(`Escrita confirmada no repositório privado: ${Object.keys(snap.data).length} registros, ${snap.exams.length} exames. ${new Date().toLocaleString('pt-BR')}`, 'online')}
+async function push(auto=false){guard();await assertPublicRepo();if(!ready)throw Error('Antes de salvar, teste a conexão e, se já houver dados, baixe-os.');if(auto&&!confirmedWrite)throw Error('Faça primeiro um envio manual para habilitar o automático.');if(!auto&&!confirm('ATENÇÃO: os dados do LifeHub, incluindo possíveis exames e anexos, serão publicados sem criptografia no GitHub e poderão ser acessados por qualquer pessoa. Deseja realmente continuar?'))return;status('Verificando versão remota...','syncing');let remote=await getRemote();if((remote?.sha||null)!==knownSha){ready=false;throw Error('A nuvem mudou em outro aparelho. Baixe os dados primeiro para evitar sobrescrever alterações.')}let snap=await snapshot();status(`Preparando ${Object.keys(snap.data).length} registros para o repositório público...`);let raw=enc.encode(JSON.stringify({format:'lifehub-token-classic-public-v1',payload:snap}));if(raw.length>90*1024*1024)throw Error('Backup muito grande para o GitHub.');let payload={message:`Atualizar backup LifeHub ${new Date().toISOString()}`,content:b64(raw),...(knownSha?{sha:knownSha}:{})};let out=await request('PUT',payload);knownSha=out.content.sha;ready=true;confirmedWrite=true;status(`Escrita confirmada no repositório público: ${Object.keys(snap.data).length} registros, ${snap.exams.length} exames. ${new Date().toLocaleString('pt-BR')}`, 'online')}
 async function run(fn){if(busy)return;busy=true;try{await fn()}catch(e){ready=false;confirmedWrite=false;$c('lhAuto').checked=false;status('Erro: '+e.message,'error')}finally{busy=false}}
 $c('lhForgetToken').onclick=()=>{clearTimeout(timer);$c('lhAuto').checked=false;$c('lhToken').value='';ready=false;confirmedWrite=false;knownSha=null;status('Token removido desta sessão.','disconnected')};
 $c('lhToken').addEventListener('input',()=>{clearTimeout(timer);$c('lhAuto').checked=false;ready=false;confirmedWrite=false;knownSha=null;status('Token alterado. Teste a conexão novamente.','disconnected')});
