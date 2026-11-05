@@ -135,6 +135,29 @@
   ],
   "studioHtml": "<h2>Scrapbook & Notas 🌿</h2><p>Clique em <b>\"Inserir Foto Polaroid\"</b> na barra acima para colar fotos da sua câmera ou galeria aqui dentro!</p>",
   "studioDrawing": null,
+  "welcome": {
+    "text": "Raquel, fiz este cantinho pensando em você: um lugar para organizar seus dias, cuidar de você e guardar nossas memórias. Explore com calma — tudo aqui é seu. Te amo.",
+    "sign": "Douglas",
+    "dismissed": true
+  },
+  "loveNotes": [
+    "Bom dia, meu amor. Que hoje seja leve, e que você lembre o quanto é incrível.",
+    "Você faz os meus dias mais bonitos. Obrigado por existir na minha vida.",
+    "Respira fundo: você dá conta de tudo — e, se não der, eu estou aqui com você.",
+    "Lembrete oficial do dia: beber água, sorrir e saber que eu te amo.",
+    "Tenho orgulho de você em cada pequeno passo. Hoje também."
+  ],
+  "specialDates": [
+    {
+      "label": "Aniversário da Raquel",
+      "date": ""
+    },
+    {
+      "label": "Nosso aniversário",
+      "date": ""
+    }
+  ],
+  "stories": [],
   "format": "lifehub-token-classic-v2",
   "payload": {
     "version": 2,
@@ -413,5 +436,3537 @@
       "lifehub_skincare_2026-09-16": "<div><span style=\"background-color: rgb(255, 220, 229);\">MANHÃ</span></div><div><br></div><div><div>✅ Água Micelar Rosa Mosqueta</div><div>✅ VT TX Toning Daily Spotless Care</div><div>✅ Axis-Y Dark Spot Correcting Glow Serum</div><div>✅ Sensibio AR</div><div>✅ Protetor solar.</div><div><br></div><div><span style=\"background-color: rgb(255, 242, 168);\">NOITE</span></div><div><br></div><div>✅ Limpeza</div><div>✅ Máscara Facial Laranja (única)</div><div>✅ RETIRAR</div><div>✅ PDRN Booster Gel</div><div>✅ BOOSTER X2 — nível 1 — 5 min</div><div>✅ GABA Simple Organic</div><div>✅ Sensibio AR</div><div>✅ Numbuzin No. 9.</div></div>"
     },
     "exams": []
+  },
+  "skincare": {
+    "2026-11-02": {
+      "date": "2026-11-02",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-03": {
+      "date": "2026-11-03",
+      "focus": "Máscara hidratante (Roma)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Roma (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-04": {
+      "date": "2026-11-04",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-05": {
+      "date": "2026-11-05",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-06": {
+      "date": "2026-11-06",
+      "focus": "Deriva C Micro condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Deriva C Micro (quantidade conforme embalagem/orientação anterior; se fórmula confirmada)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-07": {
+      "date": "2026-11-07",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-08": {
+      "date": "2026-11-08",
+      "focus": "Medicube MC",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube MC nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-09": {
+      "date": "2026-11-09",
+      "focus": "Máscara hidratante (Cereja)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Cereja (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-10": {
+      "date": "2026-11-10",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-11": {
+      "date": "2026-11-11",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-12": {
+      "date": "2026-11-12",
+      "focus": "Medicube Derma Shot",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Derma Shot nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-13": {
+      "date": "2026-11-13",
+      "focus": "Clareador prescrito condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Chem Sérum Clareador (somente se coincidir com prescrição; caso contrário pular)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-14": {
+      "date": "2026-11-14",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-15": {
+      "date": "2026-11-15",
+      "focus": "Medicube Air Shot",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar completamente",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Medicube Air Shot - nível 1, até 5 min, sem produto, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-16": {
+      "date": "2026-11-16",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-17": {
+      "date": "2026-11-17",
+      "focus": "Máscara hidratante (Rosa mosqueta)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Rosa mosqueta (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-18": {
+      "date": "2026-11-18",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-19": {
+      "date": "2026-11-19",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-20": {
+      "date": "2026-11-20",
+      "focus": "Deriva C Micro condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Deriva C Micro (quantidade conforme embalagem/orientação anterior; se fórmula confirmada)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-21": {
+      "date": "2026-11-21",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-22": {
+      "date": "2026-11-22",
+      "focus": "Medicube Dual",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Dual nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-23": {
+      "date": "2026-11-23",
+      "focus": "Máscara hidratante (Imperial Bee Collagen)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Imperial Bee Collagen (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-24": {
+      "date": "2026-11-24",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-25": {
+      "date": "2026-11-25",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-26": {
+      "date": "2026-11-26",
+      "focus": "Medicube MC",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube MC nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-27": {
+      "date": "2026-11-27",
+      "focus": "Clareador prescrito condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Chem Sérum Clareador (somente se coincidir com prescrição; caso contrário pular)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-28": {
+      "date": "2026-11-28",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-29": {
+      "date": "2026-11-29",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-11-30": {
+      "date": "2026-11-30",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-01": {
+      "date": "2026-12-01",
+      "focus": "Máscara hidratante (Kakaziyan Antioxidant)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha - Kakaziyan Antioxidant (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-02": {
+      "date": "2026-12-02",
+      "focus": "Medicube Mask",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Mask nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-03": {
+      "date": "2026-12-03",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-04": {
+      "date": "2026-12-04",
+      "focus": "Deriva C Micro condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Deriva C Micro (quantidade conforme embalagem/orientação anterior; se fórmula confirmada)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-05": {
+      "date": "2026-12-05",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-06": {
+      "date": "2026-12-06",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-07": {
+      "date": "2026-12-07",
+      "focus": "Máscara hidratante (Laranja)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Laranja (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-08": {
+      "date": "2026-12-08",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-09": {
+      "date": "2026-12-09",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-10": {
+      "date": "2026-12-10",
+      "focus": "Medicube MC",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube MC nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-11": {
+      "date": "2026-12-11",
+      "focus": "Clareador prescrito condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Chem Sérum Clareador (somente se coincidir com prescrição; caso contrário pular)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-12": {
+      "date": "2026-12-12",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-13": {
+      "date": "2026-12-13",
+      "focus": "Medicube Derma Shot",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Derma Shot nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-14": {
+      "date": "2026-12-14",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-15": {
+      "date": "2026-12-15",
+      "focus": "Máscara hidratante (Kakaziyan Anti-Wrinkle)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Kakaziyan Anti-Wrinkle (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-16": {
+      "date": "2026-12-16",
+      "focus": "Medicube Air Shot",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar completamente",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Medicube Air Shot - nível 1, até 5 min, sem produto, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-17": {
+      "date": "2026-12-17",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-18": {
+      "date": "2026-12-18",
+      "focus": "Deriva C Micro condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Deriva C Micro (quantidade conforme embalagem/orientação anterior; se fórmula confirmada)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-19": {
+      "date": "2026-12-19",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-20": {
+      "date": "2026-12-20",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-21": {
+      "date": "2026-12-21",
+      "focus": "Máscara hidratante (Maçã)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Maçã (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-22": {
+      "date": "2026-12-22",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-23": {
+      "date": "2026-12-23",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-24": {
+      "date": "2026-12-24",
+      "focus": "Medicube Dual",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Dual nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-25": {
+      "date": "2026-12-25",
+      "focus": "Clareador prescrito condicional",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "VT TX Toning Daily Spotless Care (camada fina, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Arencia Deep Water Surge Serum 30 (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Chem Sérum Clareador (somente se coincidir com prescrição; caso contrário pular)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-26": {
+      "date": "2026-12-26",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love - tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Niacinamida Simple Organic (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-27": {
+      "date": "2026-12-27",
+      "focus": "Medicube MC",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Revive Serum BOJ Ginseng + Snail Mucin (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube MC nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-28": {
+      "date": "2026-12-28",
+      "focus": "Retinal",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Glow Love tônico (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Glow Serum BOJ própolis + niacinamida (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial; secar bem",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Celimax Retinal (1 ervilha para todo o rosto, se tolerado)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "345 Relief Cream (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Numbuzin Nº 9 olhos (mínima quantidade, sem sobrepor ao retinal)",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-29": {
+      "date": "2026-12-29",
+      "focus": "Máscara hidratante (Limão)",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Orjena Bright Vitamin C EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "Máscara facial em folha Limão (1 unidade; tempo da embalagem)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Retirar máscara e distribuir o sérum restante",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha, se necessário)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-30": {
+      "date": "2026-12-30",
+      "focus": "Medicube Booster",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Essence Lotion (3-5 gotas)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Axis-Y Dark Spot Correcting Glow Serum (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "PDRN Booster Gel Medicube (gel suficiente para deslizamento)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Medicube Booster nível 1, até 5 min, se tolerado",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "Arencia ou Revive Serum BOJ (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Facial 7 em 1 ou 345 Relief (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n6",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    },
+    "2026-12-31": {
+      "date": "2026-12-31",
+      "focus": "Recuperação",
+      "morning": [
+        {
+          "id": "m1",
+          "text": "Limpeza suave (quantidade suficiente; enxaguar)",
+          "done": false
+        },
+        {
+          "id": "m2",
+          "text": "Mixsoon Bean Essence (2-3 gotas; não esfoliar)",
+          "done": false
+        },
+        {
+          "id": "m3",
+          "text": "Sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "m4",
+          "text": "Gel hidratante Principia (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "m5",
+          "text": "Protetor solar (cobertura generosa; reaplicar conforme exposição)",
+          "done": false
+        }
+      ],
+      "night": [
+        {
+          "id": "n1",
+          "text": "Limpeza facial",
+          "done": false
+        },
+        {
+          "id": "n2",
+          "text": "GABA Simple Organic ou sérum de arroz Flower Secret (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n3",
+          "text": "Orjena Hyaluronic Acid EX (2-3 gotas)",
+          "done": false
+        },
+        {
+          "id": "n4",
+          "text": "345 Relief Cream ou Facial 7 em 1 (1 ervilha)",
+          "done": false
+        },
+        {
+          "id": "n5",
+          "text": "Numbuzin Nº 9 olhos",
+          "done": false
+        }
+      ],
+      "notes": ""
+    }
   }
 }
